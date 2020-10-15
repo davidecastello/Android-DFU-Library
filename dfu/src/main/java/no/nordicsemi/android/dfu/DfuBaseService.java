@@ -941,6 +941,10 @@ public abstract class DfuBaseService extends IntentService implements DfuProgres
 		}
 		UuidHelper.assignCustomUuids(intent);
 
+		if (foregroundService) {
+			startForeground();
+		}
+
 		mDeviceAddress = deviceAddress;
 		mDeviceName = deviceName;
 		mDisableNotification = disableNotification;
@@ -960,9 +964,6 @@ public abstract class DfuBaseService extends IntentService implements DfuProgres
 			mbrSize = DfuSettingsConstants.SETTINGS_DEFAULT_MBR_SIZE;
 		}
 
-		if (foregroundService) {
-			startForeground();
-		}
 		sendLogBroadcast(LOG_LEVEL_VERBOSE, "DFU service started");
 
 		/*
