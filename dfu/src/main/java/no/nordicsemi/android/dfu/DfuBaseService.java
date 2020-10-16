@@ -25,6 +25,7 @@ package no.nordicsemi.android.dfu;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
@@ -1581,6 +1582,7 @@ public abstract class DfuBaseService extends IntentService implements DfuProgres
 				.setContentTitle(getString(R.string.dfu_status_foreground_title)).setContentText(getString(R.string.dfu_status_foreground_content))
 				.setColor(Color.GRAY)
 				.setPriority(NotificationCompat.PRIORITY_LOW)
+				.setCategory(Notification.CATEGORY_SERVICE)
 				.setOngoing(true);
 
 		// Update the notification
